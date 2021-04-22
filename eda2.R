@@ -115,7 +115,3 @@ aux_alldata <-  subset(AllData_D, select = -c(order_approved_at, order_delivered
                                             product_category_name_english, customer_state, seller_state))
 str(aux_alldata)
 plot_correlation(type="discrete", data = aux_alldata, 'review_score')
-
-
-
-
