@@ -4,8 +4,6 @@ import { XYFrame } from "semiotic"
 import MarkdownText from "../MarkdownText"
 import theme from "../theme"
 
-import { scaleTime } from "d3-scale"
-
 const ROOT = "http://127.0.0.1:3001/"
 
 const frameProps = {  
@@ -13,12 +11,6 @@ const frameProps = {
     xAccessor: ["x"],
     yAccessor: "y",
     yExtent: [0],
-
-    // xScaleType: scaleOrdinal(),
-    // xAccessor: d => d.toString(),
-    
-    // tickValues: [1,2,3,4,5,6,7,8,9,10,11,12],
-    // xScaleType: scaleTime(),
 
     size: [1000,400],
     margin: { left: 80, bottom: 90, right: 10, top: 40 },
@@ -120,5 +112,5 @@ export default class OrdersMonth extends React.Component {
             />
           </div>
         </div>
-    )};
+    )}
 }

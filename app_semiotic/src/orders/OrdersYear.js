@@ -34,7 +34,7 @@ const frameProps = {
       {
         type: "highlight",
         style: d => {
-          return { stroke: theme[0], 
+          return { stroke: theme[d.key], 
             strokeWidth: 5,
             fill: "none" };
         }
@@ -103,5 +103,5 @@ export default class OrdersYear extends React.Component {
             />
           </div>
         </div>
-    )};
+    )}
 }

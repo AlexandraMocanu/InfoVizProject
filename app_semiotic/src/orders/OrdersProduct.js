@@ -1,13 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 
 import React from "react"
-import { useEffect, useState } from "react-dom"
 
 import { OrdinalFrame } from "semiotic"
 import MarkdownText from "../MarkdownText"
 import theme from "../theme"
-
-import MapChart from './MapChart';
 
 const ROOT = "http://127.0.0.1:3001/"
 
@@ -112,6 +109,5 @@ export default class OrdersProduct extends React.Component {
             <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
           </div>
         </div>
-    )};
-  // }
+    )}
 }

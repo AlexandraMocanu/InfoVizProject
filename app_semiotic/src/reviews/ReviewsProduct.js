@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 
 import React from "react"
-import { useEffect, useState } from "react-dom"
 
 import { OrdinalFrame } from "semiotic"
 import MarkdownText from "../MarkdownText"
@@ -110,6 +109,5 @@ export default class ReviewsProduct extends React.Component {
             <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
           </div>
         </div>
-    )};
-  // }
+    )}
 }

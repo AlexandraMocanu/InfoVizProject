@@ -164,6 +164,6 @@ export default class OrdersCity extends React.Component {
         <MapChart width={600} height={400} data={[60, 30, 40, 20, 30]} />
       </div> */}
         </div>
-    )};
+    )}
   // }
 }
