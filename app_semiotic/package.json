@@ -1,0 +1,66 @@
+{
+  "name": "app_semiotic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@visx/geo": "^1.7.0",
+    "@visx/responsive": "^1.7.0",
+    "@visx/scale": "^1.7.0",
+    "bootstrap": "^4.6.0",
+    "d3": "^6.7.0",
+    "marked": "^2.0.3",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
+    "semiotic": "^1.20.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "@typescript-eslint/no-unused-vars": "off",
+      "no-unused-vars": [
+        "error",
+        {
+          "varsIgnorePattern": "React"
+        }
+      ]
+    }
+  }
+}
