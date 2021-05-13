@@ -2,15 +2,15 @@ require(lubridate)
 require(dplyr)
 library(RColorBrewer)
 
-Customers <- read.csv(file="dataset/olist_customers_dataset.csv", header=TRUE, sep=",")
-Geolocation <- read.csv(file="dataset/olist_geolocation_dataset.csv", header=TRUE, sep=",")
-OrderItems <- read.csv(file="dataset/olist_order_items_dataset.csv", header=TRUE, sep=",")
-OrderPayments <- read.csv(file="dataset/olist_order_payments_dataset.csv", header=TRUE, sep=",")
-OrderReviews <- read.csv(file="dataset/olist_order_reviews_dataset.csv", header=TRUE, sep=",")
-AllOrders <- read.csv(file="dataset/olist_orders_dataset.csv", header=TRUE, sep=",")
-Products <- read.csv(file="dataset/olist_products_dataset.csv", header=TRUE, sep=",")
-Sellers <- read.csv(file="dataset/olist_sellers_dataset.csv", header=TRUE, sep=",")
-ProductsTranslation <- read.csv(file="dataset/product_category_name_translation.csv", header=TRUE, sep=",")
+Customers <- read.csv(file="../../whole_dataset/olist_customers_dataset.csv", header=TRUE, sep=",")
+Geolocation <- read.csv(file="../../whole_dataset/olist_geolocation_dataset.csv", header=TRUE, sep=",")
+OrderItems <- read.csv(file="../../whole_dataset/olist_order_items_dataset.csv", header=TRUE, sep=",")
+OrderPayments <- read.csv(file="../../whole_dataset/olist_order_payments_dataset.csv", header=TRUE, sep=",")
+OrderReviews <- read.csv(file="../../whole_dataset/olist_order_reviews_dataset.csv", header=TRUE, sep=",")
+AllOrders <- read.csv(file="../../whole_dataset/olist_orders_dataset.csv", header=TRUE, sep=",")
+Products <- read.csv(file="../../whole_dataset/olist_products_dataset.csv", header=TRUE, sep=",")
+Sellers <- read.csv(file="../../whole_dataset/olist_sellers_dataset.csv", header=TRUE, sep=",")
+ProductsTranslation <- read.csv(file="../../whole_dataset/product_category_name_translation.csv", header=TRUE, sep=",")
 
 summary(Customers)
 summary(Geolocation)
@@ -94,6 +94,7 @@ barplot(most_orders_months, cex.names = 0.7,
 backup <- products_orders$price
 freight_prices_2 <- cut(products_orders$price, breaks = c(10, 30, 50, 70, 100, 200))
 freight_prices <- tapply(products_orders$price, freight_prices_2, function(X) length(unique(X)))
+#freight_prices = aggregate(products_orders$price, list(freight_prices_2), function(X) length(unique(X)))
 freight_prices
 barplot(freight_prices, cex.names = 0.9, 
         col=brewer.pal(10, "Paired"),
