@@ -6,11 +6,11 @@ const ROOT = process.env.PUBLIC_URL
 export default class MarkdownPage extends React.Component {
   state = {}
 
-  UNSAFE_componentWillMount() {
+  componentWillMount() {
     this.getFile(this.props)
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.filename !== this.props.filename) {
       this.setState({ markdown: null })
       this.getFile(nextProps)

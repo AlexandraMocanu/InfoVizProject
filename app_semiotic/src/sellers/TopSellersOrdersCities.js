@@ -37,7 +37,7 @@ const frameProps = {
           City: {d.x}
         </div>,
         <div style={{ color: theme[1] }} key="y">
-          Score: {d.y}
+          Orders: {d.y}
         </div>
       ]
       const content = bothValues
@@ -49,7 +49,7 @@ const frameProps = {
     }
 };
 
-export default class TopSellers extends React.Component {
+export default class TopSellersOrdersCities extends React.Component {
   constructor(props) {
     super(props)
 
@@ -60,14 +60,14 @@ export default class TopSellers extends React.Component {
 
     this.onButtonSort = this.onButtonSort.bind(this);
 
-    fetch(ROOT+'scorecities')
+    fetch(ROOT+'eda1/sellercities')
       .then(response => response.json())
       .then(
         (res) => {
           this.setState({
               ...frameProps,
               alldata: res.response,
-              data: res.response.slice(0, 50),
+              data: res.response.slice(0, 20),
               isLoaded: true,
               error: null
           });
@@ -131,7 +131,7 @@ export default class TopSellers extends React.Component {
   onButtonSort() {
     const newData = this.state.alldata.sort(function(a, b) {
       return a - b;
-    }).slice(0, 50);
+    }).slice(0, 20);
     this.setState({
       ...frameProps,
       alldata: this.state.alldata,
@@ -152,11 +152,11 @@ export default class TopSellers extends React.Component {
           <div>
             <MarkdownText
               text={`
-              Score cities`}
-            />
-            <OrdinalFrame {...this.state}
+              Orders cities`}
             />
             <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
+            <OrdinalFrame {...this.state}
+            />
           </div>
           {/* <div>
         <MapChart width={600} height={400} data={[60, 30, 40, 20, 30]} />

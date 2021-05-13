@@ -5,8 +5,7 @@ import React from "react"
 import { OrdinalFrame } from "semiotic"
 import MarkdownText from "../MarkdownText"
 import theme from "../theme"
-
-const ROOT = "http://127.0.0.1:3001/"
+const ROOT = 'http://127.0.0.1:3001/'
 
 
 const frameProps = {  
@@ -55,12 +54,12 @@ export default class ReviewScores extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
+    this.setState({
       isLoaded: false,
       error: null
-    };
+    });
 
-    fetch(ROOT+'reviewscores')
+    fetch(ROOT+'eda1/reviewscores')
       .then(response => response.json())
       .then(
         (res) => {

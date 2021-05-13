@@ -22,11 +22,11 @@ export default function SubPage({ page }) {
 
         return (
           <div key={i} className={p.className}>
-            <Link to={`${match.url}/${p.url}`}>
+            <a href={`${match.url}/${p.url}`}>
               <div className="">
                 <p>{p.name}</p>
               </div>
-            </Link>
+            </a>
           </div>
         )
       })}

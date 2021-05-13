@@ -4,7 +4,7 @@ import marked from "marked"
 export default class MarkdownText extends React.Component {
   state = { marked: "" }
 
-  UNSAFE_componentWillMount() {
+  componentWillMount() {
     if (this.props.text) {
       this.setState({
         marked: marked(this.props.text, { headerIds: true })
@@ -17,7 +17,7 @@ export default class MarkdownText extends React.Component {
     }
   }
 
-  UNSAFE_componentDidMount() {
+  componentDidMount() {
     if (
       window.location.hash &&
       this.state.marked.indexOf(window.location.hash) !== -1

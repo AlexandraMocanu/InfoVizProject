@@ -9,7 +9,10 @@ export default [
   "#7a255d",
   "#365350",
   "#a19a11",
-  "#3f4482"
+  "#3f4482",
+
+  // "#b7094cff","#a01a58ff","#892b64ff", "#723c70ff","#5c4d7dff",
+  // "#455e89ff","#2e6f95ff","#1780a1ff","#0091adff"
 ]
 
 export const green = "#9fd0cb"

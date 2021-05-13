@@ -34,7 +34,7 @@ const frameProps = {
     tooltipContent: d => {
       const bothValues = [
         <div style={{ color: theme[0] }} key={"x"}>
-          City: {d.x}
+          State: {d.x}
         </div>,
         <div style={{ color: theme[1] }} key="y">
           Orders: {d.y}
@@ -49,7 +49,7 @@ const frameProps = {
     }
 };
 
-export default class TopCustomersOrdersCities extends React.Component {
+export default class TopSellersOrdersStates extends React.Component {
   constructor(props) {
     super(props)
 
@@ -60,7 +60,7 @@ export default class TopCustomersOrdersCities extends React.Component {
 
     this.onButtonSort = this.onButtonSort.bind(this);
 
-    fetch(ROOT+'customercities')
+    fetch(ROOT+'eda1/sellerstates')
       .then(response => response.json())
       .then(
         (res) => {
@@ -152,11 +152,11 @@ export default class TopCustomersOrdersCities extends React.Component {
           <div>
             <MarkdownText
               text={`
-              Orders cities`}
-            />
-            <OrdinalFrame {...this.state}
+              Orders states`}
             />
             <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
+            <OrdinalFrame {...this.state}
+            />
           </div>
           {/* <div>
         <MapChart width={600} height={400} data={[60, 30, 40, 20, 30]} />

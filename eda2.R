@@ -25,7 +25,7 @@ summary(AllOrders)
 summary(Products)
 summary(Sellers)
 
-colnames(ProductsTranslation)[colnames(ProductsTranslation)=="?..product_category_name"] <- "product_category_name"
+colnames(ProductsTranslation)[colnames(ProductsTranslation)=="ï..product_category_name"] <- "product_category_name"
 summary(ProductsTranslation)
 
 aux1 = merge(AllOrders, OrderReviews, by="order_id")
@@ -40,8 +40,6 @@ aux5 = merge(aux4, Customers, by="customer_id")
 summary(aux5)
 aux6 = merge(aux5, Sellers, by="seller_id")
 summary(aux6)
-
-colnames(ProductsTranslation)[1] <- "product_category_name"
 
 AllData = merge(aux6, ProductsTranslation, by="product_category_name")
 summary(AllData)

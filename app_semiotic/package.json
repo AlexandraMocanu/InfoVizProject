@@ -9,6 +9,7 @@
     "@visx/scale": "^1.7.0",
     "bootstrap": "^4.6.0",
     "d3": "^6.7.0",
+    "distinct-colors": "^3.0.0",
     "marked": "^2.0.3",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -16,6 +17,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
+    "react-select": "^4.3.1",
     "semiotic": "^1.20.6"
   },
   "devDependencies": {},
@@ -55,12 +57,9 @@
     },
     "rules": {
       "@typescript-eslint/no-unused-vars": "off",
-      "no-unused-vars": [
-        "error",
-        {
-          "varsIgnorePattern": "React"
-        }
-      ]
+      "@typescript-eslint/no-const-assign": "off",
+      "no-unused-vars": "off",
+      "no-const-assign": "off"
     }
   }
 }

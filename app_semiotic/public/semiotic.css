@@ -33,3 +33,9 @@ circle.frame-hover {
   stroke: #aaa;
   r: 4;
 }
+
+.annotation.badge text {
+  font-weight: bold;
+  font-size: 10px;
+}
+
