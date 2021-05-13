@@ -154,9 +154,9 @@ export default class TopCustomersOrdersStates extends React.Component {
               text={`
               Orders states`}
             />
+            <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
             <OrdinalFrame {...this.state}
             />
-            <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
           </div>
           {/* <div>
         <MapChart width={600} height={400} data={[60, 30, 40, 20, 30]} />

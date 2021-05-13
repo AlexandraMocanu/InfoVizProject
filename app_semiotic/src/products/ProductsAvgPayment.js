@@ -62,7 +62,7 @@ export default class ProductsAvgPayment extends React.Component {
 
     this.onButtonSort = this.onButtonSort.bind(this);
 
-    fetch(ROOT+'paymentproduct')
+    fetch(ROOT+'eda1/paymentproduct')
       .then(response => response.json())
       .then(
         (res) => {
@@ -156,9 +156,9 @@ export default class ProductsAvgPayment extends React.Component {
               text={`
               Average amount spent per product category`}
             />
+            <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
             <OrdinalFrame {...this.state}
             />
-            <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
           </div>
           {/* <div>
         <MapChart width={600} height={400} data={[60, 30, 40, 20, 30]} />

@@ -1,16 +1,16 @@
 library(tidyverse)
 library(rjson)
 
-Customers <- read.csv(file="../../whole_dataset/olist_customers_dataset.csv", header=TRUE, sep=",")
-Geolocation <- read.csv(file="../../whole_dataset/olist_geolocation_dataset.csv", header=TRUE, sep=",")
-OrderItems <- read.csv(file="../../whole_dataset/olist_order_items_dataset.csv", header=TRUE, sep=",")
-OrderPayments <- read.csv(file="../../whole_dataset/olist_order_payments_dataset.csv", header=TRUE, sep=",")
-OrderReviews <- read.csv(file="../../whole_dataset/olist_order_reviews_dataset.csv", header=TRUE, sep=",")
-AllOrders <- read.csv(file="../../whole_dataset/olist_orders_dataset.csv", header=TRUE, sep=",")
-Sellers <- read.csv(file="../../whole_dataset/olist_sellers_dataset.csv", header=TRUE, sep=",")
+Customers <- read.csv(file="./whole_dataset/olist_customers_dataset.csv", header=TRUE, sep=",")
+Geolocation <- read.csv(file="./whole_dataset/olist_geolocation_dataset.csv", header=TRUE, sep=",")
+OrderItems <- read.csv(file="./whole_dataset/olist_order_items_dataset.csv", header=TRUE, sep=",")
+OrderPayments <- read.csv(file="./whole_dataset/olist_order_payments_dataset.csv", header=TRUE, sep=",")
+OrderReviews <- read.csv(file="./whole_dataset/olist_order_reviews_dataset.csv", header=TRUE, sep=",")
+AllOrders <- read.csv(file="./whole_dataset/olist_orders_dataset.csv", header=TRUE, sep=",")
+Sellers <- read.csv(file="./whole_dataset/olist_sellers_dataset.csv", header=TRUE, sep=",")
 
-Products <- read.csv(file="../../whole_dataset/olist_Products_dataset.csv", header=TRUE, sep=",")
-ProductsTranslation <- read.csv(file="../../whole_dataset/product_category_name_translation.csv", header=TRUE, sep=",")
+Products <- read.csv(file="./whole_dataset/olist_Products_dataset.csv", header=TRUE, sep=",")
+ProductsTranslation <- read.csv(file="./whole_dataset/product_category_name_translation.csv", header=TRUE, sep=",")
 colnames(ProductsTranslation)[colnames(ProductsTranslation)=="?..product_category_name"] <- "product_category_name"
 
 ProductsTrans <- merge(x = Products, y = ProductsTranslation, by = "product_category_name")

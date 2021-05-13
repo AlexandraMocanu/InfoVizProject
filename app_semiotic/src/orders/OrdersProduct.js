@@ -103,9 +103,9 @@ export default class OrdersProduct extends React.Component {
               text={`
               Orders by product type`}
             />
+            <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
             <OrdinalFrame {...this.state}
             />
-            <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
           </div>
         </div>
     )}

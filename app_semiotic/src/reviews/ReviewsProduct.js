@@ -103,9 +103,9 @@ export default class ReviewsProduct extends React.Component {
               text={`
               Review scores by product`}
             />
+            <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
             <OrdinalFrame {...this.state}
             />
-            <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
           </div>
         </div>
     )}

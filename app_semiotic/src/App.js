@@ -28,7 +28,6 @@ import TopSellersOrdersStates from "./sellers/TopSellersOrdersStates"
 import TopSellersOrdersCities from "./sellers/TopSellersOrdersCities"
 import TopCustomersOrdersStates from "./customers/TopCustomersOrdersState"
 import TopCustomersOrdersCities from "./customers/TopCustomersOrdersCities"
-import OrdersMonth from "./orders/OrdersMonth"
 
 // const ROOT = process.env.PUBLIC_URL
 
@@ -176,7 +175,7 @@ export const PAGES = [
         name: "Product categories orders per year",
         url: "products-years",
         component: ProductCategoriesYears
-      }
+      },
       {
         name: "Products sold by top sellers",
         url: "products-sold-top",

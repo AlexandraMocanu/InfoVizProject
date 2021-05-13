@@ -8,6 +8,7 @@
     "@visx/responsive": "^1.7.0",
     "@visx/scale": "^1.7.0",
     "bootstrap": "^4.6.0",
+    "chroma-js": "^2.1.1",
     "d3": "^6.7.0",
     "distinct-colors": "^3.0.0",
     "marked": "^2.0.3",
