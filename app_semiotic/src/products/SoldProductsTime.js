@@ -269,7 +269,6 @@ export default class SoldProducts extends React.Component {
               And at what price do they get sold?`}
             />
             <ReactSelect input={data_map[displayed]}
-            defaultInputValue={data_map[displayed]}
             onChange={({ value }) => this.changeData(value)}
             theme={theme => ({
                 ...theme,

@@ -31,7 +31,7 @@ const tooltipStyles = {
 }
 
 const const_data = [];
-const products = {};
+// const products = {};
 
 const frameProps = {  
     data: [],
@@ -120,12 +120,12 @@ export default class SoldProducts extends React.Component {
           filtered.forEach((e) => const_data.push(e));
           // const_data = filtered;
 
-          products = filtered.reduce((obj, e) => {
-            obj[e.product_category_name_english] = {}
-            obj[e.product_category_name_english].attribute = e.attribute;
-            obj[e.product_category_name_english].value = e.value;
-            return obj;
-            }, {});
+          // products = filtered.reduce((obj, e) => {
+          //   obj[e.product_category_name_english] = {}
+          //   obj[e.product_category_name_english].attribute = e.attribute;
+          //   obj[e.product_category_name_english].value = e.value;
+          //   return obj;
+          //   }, {});
 
           this.setState({
               ...frameProps,
