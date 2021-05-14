@@ -165,7 +165,7 @@ const frameProps = {
 
       const returnArray = [
         <div key={"header_multi"} style={tooltipStyles.header}>
-          {`Statistic for: `}
+          {`${data_map[displayed]} for: `}
           <p style={{ "text-transform": "uppercase", "font-family":"helvetica", "color": palette_i[d.product_category_name_english] }}>
             {Object.keys(monthNames).find(key => monthNames[key] === d["purchase_month"])}
             </p>
