@@ -22,11 +22,8 @@ const frameProps = {   data: [{ product_category: "bed_bath_table", Year2016: 14
   oAccessor: "product_category",
   rAccessor: rAccessor,
   style: d => {
-
-          // in v1.19.6+ a d.rName is exposed so instead
-          // you can call return { fill: colorHash[d.rName], stroke: "white" }
-          return { fill: colorHash[rAccessor[d.rIndex]], stroke: "white" }
-        },
+      return { fill: colorHash[rAccessor[d.rIndex]], stroke: "white" }
+  },
   title: "Top 5 Product Categories Orders per Year",
   axes: [{
     orient: "bottom",
@@ -38,7 +35,8 @@ const frameProps = {   data: [{ product_category: "bed_bath_table", Year2016: 14
       </text>
     )
   }],
-  oLabel: true
+  oLabel: true,
+  hoverAnnotation: true,
 }
 
 export default () => {

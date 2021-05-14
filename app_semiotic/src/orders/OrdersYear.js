@@ -26,8 +26,7 @@ const frameProps = {
       </text>
     ),
     axes: [{ orient: "left", label: "Number of orders", tickFormat: function(e) {return e/1e3+"k"} },
-      { orient: "bottom", label: { name: "Year", locationDistance: 55 } }],
-      
+      { orient: "bottom", label: { name: "Year", locationDistance: 55 }, ticks: 3 }],
 
     hoverAnnotation: [
       {
@@ -97,7 +96,7 @@ export default class OrdersYear extends React.Component {
           <div>
             <MarkdownText
               text={`
-              Orders by year`}
+              How many orders did we had per year? Are our sales going up or down?`}
             />
             <XYFrame {...this.state}
             />

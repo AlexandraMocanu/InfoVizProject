@@ -4,6 +4,8 @@ import ScrollToTop from "./ScrollToTop"
 import SubPage from "./SubPage"
 import Home from "./Home"
 
+import theme from "./theme"
+
 import ReviewScores from "./reviews/ReviewScores"
 import ReviewsProduct from "./reviews/ReviewsProduct"
 
@@ -21,9 +23,9 @@ import TopSellers from "./sellers/TopSellers"
 import SoldProducts from "./products/SoldProducts"
 import SoldProductsTime from "./products/SoldProductsTime"
 import ProductsAvgPayment from "./products/ProductsAvgPayment"
+import ProductCategoriesYears from "./products/ProductCategoriesYears"
 import OrdersMonthArea from "./orders/OrdersMonthArea"
 import OrdersMonthsDifference from "./orders/OrdersMonthsDifference"
-import ProductCategoriesYears from "./products/ProductCategoriesYears"
 import TopSellersOrdersStates from "./sellers/TopSellersOrdersStates"
 import TopSellersOrdersCities from "./sellers/TopSellersOrdersCities"
 import TopCustomersOrdersStates from "./customers/TopCustomersOrdersState"
@@ -231,16 +233,22 @@ export default function () {
     <div className="App">
       <ScrollToTop location={window.location} />
       <header className="flex">
-        {/* <div className="logo"> */}
-          {/* <img src={ROOT + "/assets/img/semiotic.png"} alt="Semiotic" /> */}
-        {/* </div> */}
         <div className="flex space-between">
-          <h1>Analysis of consumers shopping habits</h1>
+          <div>
+          <h1 style={{ color: theme[0] }}>Analysis of consumers shopping habits</h1>
+          <h3>What 
+              <span style={{ color: theme[1] }}> products</span>, 
+              <span style={{ color: theme[2] }}> sellers</span>, and 
+              <span style={{ color: theme[3] }}> customers </span> should we 
+              <span style={{ color: theme[4] }}> advertise </span> 
+              <i style={{ color: theme[5] }}> for </i> or 
+              <i style={{ color: theme[6] }}> to </i>, in order to 
+              <span style={{ color: theme[7] }}> increase sales</span>?</h3>
+          </div>
           <h2>
             {page && page.name}
             {subpage && ` > ${subpage.name}`}
           </h2>
-
         </div>
       </header>
       <div className="flex body">

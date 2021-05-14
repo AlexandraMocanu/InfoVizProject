@@ -25,7 +25,6 @@ const frameProps = {
     rAccessor: "y",
     oLabel: true,
     margin: { left: 160, bottom: 90, right: 10, top: 40 },
-    // style: { fill: "#ac58e5", stroke: "white" },
     style: function(e,t){return{fill:"url(#gradient)"}},
     additionalDefs: [
       <linearGradient key="gradient" x1="0" x2="0" y1="0" y2="1" id="gradient">
@@ -34,8 +33,6 @@ const frameProps = {
       </linearGradient>
     ],
     renderMode: "painty",
-
-    // title: "Most orders per city",
     
     tooltipContent: d => {
       const bothValues = [
@@ -58,27 +55,7 @@ const frameProps = {
     pieceIDAccessor:"x",
 
     annotations: [
-        // {
-        //   type: AnnotationCalloutElbow,
-        //   x: "rio de janeiro",
-        //   dy: 117,
-        //   dx: 85,
-        //   color: "#E0488B",
-        //   className: "show-bg",
-        //   editMode: true,
-        //   note: {"title":"Annotations :)",
-        //     "label":"Longer text to show text wrapping",
-        //     "lineType":"vertical",
-        //     "bgPadding":{"top":15,
-        //             "left":10,
-        //             "right":10,
-        //             "bottom":10},
-        //             "padding":15,
-        //     "align":"middle",
-        //     "wrap":1500},
-        //   connector: {"end":"dot"},
-        //   height: 200
-        // },
+    
         {type: AnnotationBadge,
           x:"rio de janeiro",
           dy: 117,
@@ -261,27 +238,22 @@ export default class OrdersCity extends React.Component {
   }
 
   render() {
-    // if (this.state.error) {
-    //   return <div>Error: {this.state.error.message}</div>;
-    // } else if (!this.state.isLoaded) {
-    //   return <div>Loading...</div>;
-    // } else {
     return (
         <div>
           <div>
             <MarkdownText
               text={`
-              Orders by city`}
+              What cities do most orders come from?
+              Given their known population (marked here with a badge for the TOP 4 cities), which can be more relevant for targeting?
+              What about the cities with less orders?`}
             />
 
             <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
             <OrdinalFrame {...this.state}>
-              <div> assd </div>
             </OrdinalFrame>
 
           </div>
           
         </div>
     )}
-  // }
 }

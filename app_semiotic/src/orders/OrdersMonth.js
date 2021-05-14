@@ -1,5 +1,4 @@
 import XYFrame from "semiotic/lib/XYFrame"
-//const ROOT = "http://127.0.0.1:3001/"
 
 const theme = ["#ac58e5","#E0488B","#9fd0cb","#e0d33a","#7566ff","#533f82","#7a255d","#365350","#a19a11","#3f4482"]
 const frameProps = {   lines: [{ title: "Ex Machina", coordinates: [{ month: 1, orders: 6 },
@@ -44,7 +43,25 @@ const frameProps = {   lines: [{ title: "Ex Machina", coordinates: [{ month: 1, 
   ),
   axes: [{ orient: "left", label: "Number of Orders", tickFormat: function(e){return e/1e3+"k"} },
     { orient: "bottom", label: { name: "Month", locationDistance: 55 }, tickValues: [""]}],
-    hoverAnnotation: true
+    
+  hoverAnnotation: true,
+
+  tooltipContent: d => {
+      const bothValues = [
+        <div style={{ color: theme[0] }} key={"month"}>
+          Month: {d.month}
+        </div>,
+        <div style={{ color: theme[1] }} key="orders">
+          Orders: {d.orders}
+        </div>
+      ]
+      const content = bothValues
+      return (
+        <div style={{ fontWeight: 900 }} className="tooltip-content">
+          {content}
+        </div>
+      )
+    }
 }
 
 export default () => {

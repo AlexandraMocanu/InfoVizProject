@@ -18,7 +18,7 @@ const frameProps = {
     rAccessor: "y",
     oLabel: true,
     margin: { left: 160, bottom: 90, right: 10, top: 40 },
-    style: { fill: "#ac58e5", stroke: "white" },
+    style: { fill: theme[2], stroke: "white" },
     pieceHoverAnnotation: [
       {
         type: "highlight",
@@ -79,53 +79,6 @@ export default class TopSellers extends React.Component {
             error
         });
       });
-      // .then(data => {
-      //   this.setState({ ...frameProps, data: data.response})
-      // });
-
-      // const mapRef = useRef();
-      // const [mapdata] = useState({
-      //   counties: [],
-      //   orders: []
-      // });
-
-      // fetch(ROOT+'orderscounties')
-      // .then(response => response.json())
-      // .then(res => {
-      //     this.setCountiesData({
-      //         data: res.response
-      //     });
-      //   });
-
-      // useEffect(() => {
-      //   if (data.length) {
-      //     const formattedData = formatData(data[0].feed.entry)
-      //     setCountiesData( prevState => ({
-      //       ...prevState,
-      //       allParks: formattedData,
-      //       activeParks: formattedData,
-      //     }));
-      //   }
-      // }, [data]);
-
-      // const filterParksByPark = park => {
-      //   setParkData({
-      //     ...parkData,
-      //     activeParks: [park],
-      //     activeBorough: park.borough
-      //   });
-      // }
-
-      // const filterParksByBorough = borough => {
-      //     const parksByBorough = parkData.allParks.filter( park => {
-      //       return borough   === 'all' ? park : park.borough === borough 
-      //     });
-      //     setParkData({
-      //       ...parkData,
-      //       activeParks: parksByBorough,
-      //       activeBorough: borough
-      //     });
-      // };
   }
 
   onButtonSort() {
@@ -142,26 +95,19 @@ export default class TopSellers extends React.Component {
   }
 
   render() {
-    // if (this.state.error) {
-    //   return <div>Error: {this.state.error.message}</div>;
-    // } else if (!this.state.isLoaded) {
-    //   return <div>Loading...</div>;
-    // } else {
     return (
         <div>
           <div>
             <MarkdownText
               text={`
-              Score cities`}
+              Based on the reviews scores given by customers, where do the sellers given higher ratings come from? (in terms of cities)
+              Are sellers from certain cities more 'good' than others?
+              What about the 'worst' sellers?`}
             />
             <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
             <OrdinalFrame {...this.state}
             />
           </div>
-          {/* <div>
-        <MapChart width={600} height={400} data={[60, 30, 40, 20, 30]} />
-      </div> */}
         </div>
     )}
-  // }
 }

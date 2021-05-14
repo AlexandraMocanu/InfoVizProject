@@ -16,6 +16,36 @@ const gdp = {
   "RS": "116B"
 }
 
+const states = {
+  'AC':'Acre',
+'AL':'Alagoas',
+'AP':'Amapá',
+'AM':'Amazonas',
+'BA':'Bahia',
+'CE':'Ceará',
+'DF':'Distrito Federal',
+'ES':'Espírito Santo',
+'GO':'Goiás',
+'MA':'Maranhão',
+'MT':'Mato Grosso',
+'MS':'Mato Grosso do Sul',
+'MG':'Minas Gerais',
+'PA':'Pará',
+'PB':'Paraíba',
+'PR':'Paraná',
+'PE':'Pernambuco',
+'PI':'Piauí',
+'RJ':'Rio de Janeiro',
+'RN':'Rio Grande do Norte',
+'RS':'Rio Grande do Sul',
+'RO':'Rondônia',
+'RR':'Roraima',
+'SC':'Santa Catarina',
+'SP':'São Paulo',
+'SE':'Sergipe',
+'TO':'Tocantins',
+}
+
 const frameProps = {  
     data: [],
     size: [1000,700],
@@ -26,7 +56,6 @@ const frameProps = {
     oLabel: true,
     oPadding: 15,
     margin: { left: 160, bottom: 90, right: 10, top: 20 },
-    // style: { fill: "#ac58e5", stroke: "white" },
     style: function(e,t){return{fill:"url(#triangle)"}},
   additionalDefs: [
     <pattern
@@ -45,7 +74,7 @@ const frameProps = {
   tooltipContent: d => {
     const bothValues = [
       <div style={{ color: theme[0] }} key={"x"}>
-        State: {d.x}
+        State: {states[d.x]}
       </div>,
       <div style={{ color: theme[1] }} key="y">
         Orders: {d.y}
@@ -149,7 +178,9 @@ export default class OrdersState extends React.Component {
           <div>
             <MarkdownText
               text={`
-              Orders by state`}
+              What about states?
+              Given their known GDP (marked with a badge for the 'richest' states), which can be more relevant for targeting?
+              What about the states with less orders?`}
             />
             <OrdinalFrame {...this.state}
             />

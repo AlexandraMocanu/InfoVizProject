@@ -31,6 +31,7 @@ const tooltipStyles = {
 }
 
 const const_data = [];
+const products = {};
 
 const frameProps = {  
     data: [],
@@ -52,34 +53,11 @@ const frameProps = {
       fill:palette_i[e.source.product_category_name_english],
       stroke:palette_i[e.source.product_category_name_english],
       strokeOpacity:.5,fillOpacity:.5}},
-    title: "Products sold by the top 20 sellers",
-    // foregroundGraphics:  [
-    //   <g transform="translate(440, 73)" key="legend">
-    //     <text key={1} fill={"#ac58e5"}>
-    //       New York
-    //     </text>
-    //     <text key={1} y={20} fill={"#E0488B"}>
-    //       Las Vegas
-    //     </text>
-    //     <text key={1} y={40} fill={"#9fd0cb"}>
-    //       San Diego
-    //     </text>
-    //     <text key={1} y={60} fill={"#e0d33a"}>
-    //       Denver
-    //     </text>
-    //     <text key={1} y={80} fill={"#7566ff"}>
-    //       Oakland
-    //     </text>
-    //   </g>
-    // ],
     axes: true,
 
     pieceHoverAnnotation: true,
     tooltipContent: d => {
       const bothValues = [
-        // <div style={{ "font-family":"helvetica", "color": palette_i[d.product_category_name_english] }} key={"name"}>
-        //   {d.product_category_name_english}
-        // </div>,
         <div>
           <p style= {{ "font-family":"sans-serif", "color": theme[0] }} >
             {` ${d.attribute} = `}
@@ -107,16 +85,6 @@ const frameProps = {
         </div>
       )
     },
-
-
-    // pieceHoverAnnotation: [
-    //   {
-    //     type: "highlight",
-    //     style: d => ({
-    //       fill: theme[4]
-    //     })
-    //   }
-    // ],
     oLabel: true,
     
 };
@@ -143,16 +111,6 @@ export default class SoldProducts extends React.Component {
           })
           
           var alldata = res.response;
-          
-          // var filtered = alldata.reduce(
-          //   function (obj, e) {
-          //     return obj.concat(Object.keys(e).reduce((result, key) => {
-          //       if (key.includes('scaled') || key.includes('english')) {
-          //         result[key] = e[key];
-          //       }
-          //       return result;
-          //     }, {}));
-          //     }, []);
 
           var filtered = alldata
           .filter(e => e.attribute.includes("scaled") 
@@ -161,6 +119,13 @@ export default class SoldProducts extends React.Component {
 
           filtered.forEach((e) => const_data.push(e));
           // const_data = filtered;
+
+          products = filtered.reduce((obj, e) => {
+            obj[e.product_category_name_english] = {}
+            obj[e.product_category_name_english].attribute = e.attribute;
+            obj[e.product_category_name_english].value = e.value;
+            return obj;
+            }, {});
 
           this.setState({
               ...frameProps,
@@ -185,7 +150,8 @@ export default class SoldProducts extends React.Component {
           <div>
             <MarkdownText
               text={`
-              Products sold by the top 20 sellers`}
+              Given the products sold by the top 20 sellers (by number of orders) what are their statistics?
+              What is their average price, the average order count, the average review?`}
             />
             <OrdinalFrame {...this.state}
             />

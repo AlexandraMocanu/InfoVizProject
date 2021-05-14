@@ -81,18 +81,18 @@ const monthNames = {
 
 const data_to_display = [
   {value: "orders", label: "Orders"}, 
-  // {value: "avg_price", label: "Average Price"}, 
-  {value: "scaled_orders", label: "Orders (Scaled)"}, 
+  {value: "avg_price", label: "Average Price"}, 
+  // {value: "scaled_orders", label: "Orders (Scaled)"}, 
   // {value: "scaled_avg_price", label: "Average Price (Scaled)"}
 ]
 const data_map = {
   "orders": "Orders",
-  // "avg_price": "Average Price",
-  "scaled_orders": "Orders (Scaled)",
+  "avg_price": "Average Price",
+  // "scaled_orders": "Orders (Scaled)",
   // "scaled_avg_price": "Average Price (Scaled)"
 }
 
-let displayed = "";
+let displayed = "orders";
 
 const tooltipStyles = {
   header: {
@@ -209,7 +209,7 @@ export default class SoldProducts extends React.Component {
           var alldata = res.response;
 
           var filtered = alldata
-          .filter(e => e.attribute==="scaled_orders")
+          .filter(e => e.attribute===displayed)
           .reduce((obj, e) => obj.concat(
             {"product_category_name_english": e["product_category_name_english"],
             "purchase_month": monthNames[e["purchase_month"]],
@@ -218,7 +218,6 @@ export default class SoldProducts extends React.Component {
 
           filtered.forEach((e) => const_data.push(e));
           
-          displayed = "scaled_orders";
           // const_data = filtered;
 
           this.setState({
@@ -265,9 +264,12 @@ export default class SoldProducts extends React.Component {
           <div>
             <MarkdownText
               text={`
-              Products sold by the top 20 sellers`}
+              The products number of orders per month of year (described as raw number of orders)
+              Do some products get sold more frequently during some month or another?
+              And at what price do they get sold?`}
             />
             <ReactSelect input={data_map[displayed]}
+            defaultInputValue={data_map[displayed]}
             onChange={({ value }) => this.changeData(value)}
             theme={theme => ({
                 ...theme,

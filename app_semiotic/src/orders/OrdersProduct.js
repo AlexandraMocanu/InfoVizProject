@@ -17,21 +17,21 @@ const frameProps = {
     rAccessor: "y",
     oLabel: true,
     margin: { left: 160, bottom: 90, right: 10, top: 40 },
-    style: { fill: "#ac58e5", stroke: "white" },
-    // pieceHoverAnnotation: true,
-    // title: "Most orders per city",
-    pieceHoverAnnotation: [
-      {
-        type: "highlight",
-        style: {
-          stroke: "white",
-          fill: "none",
-          strokeWidth: 4,
-          strokeOpacity: 0.5
-        }
-      },
-      { type: "frame-hover" }
+      style: function(e,t){return{fill:"url(#triangle)"}},
+    additionalDefs: [
+      <pattern
+        key="triangle"
+        id="triangle"
+        width="10"
+        height="10"
+        patternUnits="userSpaceOnUse"
+      >
+        <rect fill={theme[1]} width="10" height="10" />
+        <circle fill={theme[1]} r="25" cx="8" cy="8" />
+      </pattern>
     ],
+    renderMode: "painty",
+    
     tooltipContent: d => {
       const bothValues = [
         <div style={{ color: theme[0] }} key={"x"}>
@@ -47,7 +47,28 @@ const frameProps = {
           {content}
         </div>
       )
-    }
+    },
+  
+    pieceHoverAnnotation: true,
+      pieceIDAccessor:"x",
+  
+      annotations: [
+  
+        { pieceHoverAnnotation: [
+          {
+            type: "highlight",
+            style: {
+              stroke: "white",
+              fill: "none",
+              strokeWidth: 4,
+              strokeOpacity: 0.5
+            }
+          },
+          { type: "frame-hover" }
+        ]},
+      ],
+  
+      responsiveWidth: true,
 };
 
 export default class OrdersProduct extends React.Component {
@@ -101,7 +122,7 @@ export default class OrdersProduct extends React.Component {
           <div>
             <MarkdownText
               text={`
-              Orders by product type`}
+              What type of products are most often bought? What about the the ones which are not popular?`}
             />
             <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
             <OrdinalFrame {...this.state}

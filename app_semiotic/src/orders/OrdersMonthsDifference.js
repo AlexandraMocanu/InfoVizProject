@@ -2,8 +2,6 @@ import React from "react"
 
 import { XYFrame } from "semiotic"
 
-//const ROOT = "http://127.0.0.1:3001/"
-
 const theme = ["#ac58e5","#E0488B","#9fd0cb","#e0d33a","#7566ff","#533f82","#7a255d","#365350","#a19a11","#3f4482"]
 const frameProps = {   lines: [{ title: "2017", coordinates: [{ month: 1, orders: 955},
         { month: 2, orders: 1951 },

@@ -8,6 +8,35 @@ import theme from "../theme"
 
 const ROOT = "http://127.0.0.1:3001/"
 
+const states = {
+  'AC':'Acre',
+'AL':'Alagoas',
+'AP':'Amapá',
+'AM':'Amazonas',
+'BA':'Bahia',
+'CE':'Ceará',
+'DF':'Distrito Federal',
+'ES':'Espírito Santo',
+'GO':'Goiás',
+'MA':'Maranhão',
+'MT':'Mato Grosso',
+'MS':'Mato Grosso do Sul',
+'MG':'Minas Gerais',
+'PA':'Pará',
+'PB':'Paraíba',
+'PR':'Paraná',
+'PE':'Pernambuco',
+'PI':'Piauí',
+'RJ':'Rio de Janeiro',
+'RN':'Rio Grande do Norte',
+'RS':'Rio Grande do Sul',
+'RO':'Rondônia',
+'RR':'Roraima',
+'SC':'Santa Catarina',
+'SP':'São Paulo',
+'SE':'Sergipe',
+'TO':'Tocantins',
+}
 
 const frameProps = {  
     data: [],
@@ -18,7 +47,15 @@ const frameProps = {
     rAccessor: "y",
     oLabel: true,
     margin: { left: 160, bottom: 90, right: 10, top: 40 },
-    style: { fill: "#ac58e5", stroke: "white" },
+    style: function(e,t){return{fill:"url(#gradient)"}},
+    additionalDefs: [
+      <linearGradient key="gradient" x1="0" x2="1" y1="0" y2="1" id="gradient">
+        <stop stopColor={theme[3]} offset="0%" />
+        <stop stopColor={theme[3]} offset="100%" />
+      </linearGradient>
+    ],
+    renderMode:"painty",
+
     pieceHoverAnnotation: [
       {
         type: "highlight",
@@ -34,7 +71,7 @@ const frameProps = {
     tooltipContent: d => {
       const bothValues = [
         <div style={{ color: theme[0] }} key={"x"}>
-          State: {d.x}
+          State: {states[d.x]}
         </div>,
         <div style={{ color: theme[1] }} key="y">
           Orders: {d.y}
@@ -79,53 +116,6 @@ export default class TopCustomersOrdersStates extends React.Component {
             error
         });
       });
-      // .then(data => {
-      //   this.setState({ ...frameProps, data: data.response})
-      // });
-
-      // const mapRef = useRef();
-      // const [mapdata] = useState({
-      //   counties: [],
-      //   orders: []
-      // });
-
-      // fetch(ROOT+'orderscounties')
-      // .then(response => response.json())
-      // .then(res => {
-      //     this.setCountiesData({
-      //         data: res.response
-      //     });
-      //   });
-
-      // useEffect(() => {
-      //   if (data.length) {
-      //     const formattedData = formatData(data[0].feed.entry)
-      //     setCountiesData( prevState => ({
-      //       ...prevState,
-      //       allParks: formattedData,
-      //       activeParks: formattedData,
-      //     }));
-      //   }
-      // }, [data]);
-
-      // const filterParksByPark = park => {
-      //   setParkData({
-      //     ...parkData,
-      //     activeParks: [park],
-      //     activeBorough: park.borough
-      //   });
-      // }
-
-      // const filterParksByBorough = borough => {
-      //     const parksByBorough = parkData.allParks.filter( park => {
-      //       return borough   === 'all' ? park : park.borough === borough 
-      //     });
-      //     setParkData({
-      //       ...parkData,
-      //       activeParks: parksByBorough,
-      //       activeBorough: borough
-      //     });
-      // };
   }
 
   onButtonSort() {
@@ -142,26 +132,18 @@ export default class TopCustomersOrdersStates extends React.Component {
   }
 
   render() {
-    // if (this.state.error) {
-    //   return <div>Error: {this.state.error.message}</div>;
-    // } else if (!this.state.isLoaded) {
-    //   return <div>Loading...</div>;
-    // } else {
     return (
         <div>
           <div>
             <MarkdownText
               text={`
-              Orders states`}
+              Where do most of the customers (calculated by number of ordersm) come from (states)?
+              To which states do we deliver more products?`}
             />
             <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
             <OrdinalFrame {...this.state}
             />
           </div>
-          {/* <div>
-        <MapChart width={600} height={400} data={[60, 30, 40, 20, 30]} />
-      </div> */}
         </div>
     )}
-  // }
 }

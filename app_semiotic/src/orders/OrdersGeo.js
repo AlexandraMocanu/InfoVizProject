@@ -23,5 +23,4 @@ export default class OrdersGeo extends React.Component {
           <div></div>
         </div>
     )}
-  // }
 }

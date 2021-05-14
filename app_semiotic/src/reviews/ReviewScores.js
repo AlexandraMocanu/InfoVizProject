@@ -10,14 +10,26 @@ const ROOT = 'http://127.0.0.1:3001/'
 
 const frameProps = {  
     data: [],
-    size: [700,700],
+    size: [700,300],
     type: "bar",
     projection: "horizontal",
     oAccessor: ["x"],
     rAccessor: "y",
     oLabel: true,
+    oPadding: 10,
     margin: { left: 160, bottom: 90, right: 10, top: 40 },
-    style: { fill: "#ac58e5", stroke: "white" },
+    style: function(e,t){return{fill:"url(#triangle)"}},
+    additionalDefs: [
+      <pattern
+        key="triangle"
+        id="triangle"
+        width="8"
+        height="8"
+        patternUnits="userSpaceOnUse"
+      >
+        <circle fill={theme[4]} r="5" cx="3" cy="3" strokeWidth="2" />
+      </pattern>
+    ],
     // pieceHoverAnnotation: true,
     // title: "Most orders per city",
     pieceHoverAnnotation: [
@@ -35,7 +47,7 @@ const frameProps = {
     tooltipContent: d => {
       const bothValues = [
         <div style={{ color: theme[0] }} key={"x"}>
-          City: {d.x}
+          Review score: {d.x}
         </div>,
         <div style={{ color: theme[1] }} key="y">
           Orders: {d.y}
@@ -86,7 +98,7 @@ export default class ReviewScores extends React.Component {
           <div>
             <MarkdownText
               text={`
-              Frequency of review scores`}
+              Based on all orders, how many reviews do we have and how are they distributed? Are customers usually satisfied with their products?`}
             />
             <OrdinalFrame {...this.state}
             />

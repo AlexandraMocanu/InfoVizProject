@@ -16,10 +16,16 @@ const frameProps = {
     oAccessor: ["x"],
     rAccessor: "y",
     oLabel: true,
+    oPadding: 5,
     margin: { left: 160, bottom: 90, right: 10, top: 40 },
-    style: { fill: "#ac58e5", stroke: "white" },
-    // pieceHoverAnnotation: true,
-    // title: "Most orders per city",
+    style: function(e,t){return{fill:"url(#gradient)"}},
+    additionalDefs: [
+      <linearGradient key="gradient" x1="0" x2="1" y1="0" y2="1" id="gradient">
+        <stop stopColor={theme[1]} offset="0%" />
+        <stop stopColor={theme[4]} offset="100%" />
+      </linearGradient>
+    ],
+    renderMode: "painty",
     pieceHoverAnnotation: [
       {
         type: "highlight",
@@ -35,7 +41,7 @@ const frameProps = {
     tooltipContent: d => {
       const bothValues = [
         <div style={{ color: theme[0] }} key={"x"}>
-          City: {d.x}
+          Product: {d.x}
         </div>,
         <div style={{ color: theme[1] }} key="y">
           Orders: {d.y}
@@ -101,7 +107,8 @@ export default class ReviewsProduct extends React.Component {
           <div>
             <MarkdownText
               text={`
-              Review scores by product`}
+              How do the reviews distribute over the products? Which products usually received higher review scores?
+              What about products that did not satisfy customers as much (have lowe review scores)?`}
             />
             <button onClick={this.onButtonSort}>Get TOP/Bottom</button>
             <OrdinalFrame {...this.state}
